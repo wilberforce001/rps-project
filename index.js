@@ -3,8 +3,7 @@ console.log("Hi!")
 const options = ["rock", "paper", "scissors"];
 
 function getComputerChoice(){
-    console.log("Computer");
-    console.log("Wilberforce");
+    const choice = options[(Math.random() * options.length)]
 }
 
 getComputerChoice();
