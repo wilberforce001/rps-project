@@ -1,5 +1,10 @@
 console.log("Hi!")
 
+const rockButton = document.querySelector('.rock')
+const paperButton = document.querySelector('.paper')
+const scissorsButton = document.querySelector('.scissors')
+const outcomeDiv = document.querySelector('.outcome')
+
 const options = ["rock", "paper", "scissors"];
 
 function getComputerChoice(){
@@ -28,10 +33,11 @@ function checkWinner(playerSelection, computerSelection){
 
 
 
-function playRound(playerSelection, computerSelection){
+function playRound(playerSelection, computerSelection){ 
     const result = checkWinner(playerSelection, computerSelection);
     if(result == "Tie"){
-        return "It's a Tie!"
+        const p = document.createElement('p')
+        p.innerText = "It's a Tie!"
     }
     else if(result == "Player"){
         return `You Win! ${playerSelection} beats ${computerSelection}`
@@ -60,19 +66,25 @@ function game(){
     let scorePlayer = 0;
     let scoreComputer = 0;
     console.log("Welcome!")
-    for (let i = 0; i < 5; i++) {
-        const playerSelection = getPlayerChoice();
-        const computerSelection = getComputerChoice();
-        console.log(playRound(playerSelection, computerSelection));
-        console.log("--------")
-        if(checkWinner(playerSelection, computerSelection) == "Player"){
-            scorePlayer++;
+     // for (let i = 0; i < 5; i++) {
+        // const playerSelection = getPlayerChoice();
+        //const computerSelection = getComputerChoice();
+        //console.log(playRound(playerSelection, computerSelection));
+        //console.log("--------")
+        //if(checkWinner(playerSelection, computerSelection) == "Player"){
+          //  scorePlayer++;
         
-        }
-        else if(checkWinner(playerSelection, computerSelection) == "Computer"){
-            scoreComputer++;
-        }
-    }
+        //}
+        //else if(checkWinner(playerSelection, computerSelection) == "Computer"){
+          //  scoreComputer++;
+        //}
+    //}
+
+    rockButton.addEventListener('click', () => {
+        const computerSelection = computerPlay()
+        const playerSelection = 'rock'
+        playRound(playerSelection, computerSelection)
+    })
     console.log("Game Over")
     if(scorePlayer > scoreComputer){
         console.log("Player was the winner");
