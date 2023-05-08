@@ -38,12 +38,15 @@ function playRound(playerSelection, computerSelection){
     if(result == "Tie"){
         const p = document.createElement('p')
         p.innerText = "It's a Tie!"
+    
     }
     else if(result == "Player"){
-        return `You Win! ${playerSelection} beats ${computerSelection}`
+        const p = document.createElement('p')
+        p.innerText = `You Win! ${playerSelection} beats ${computerSelection}`
     }
     else{
-        return `You Lose! ${computerSelection} beats ${playerSelection}`
+        const p = document.createElement('p')
+        p.innerText = `You Lose! ${computerSelection} beats ${playerSelection}`
     }
 }
 
@@ -81,8 +84,20 @@ function game(){
     //}
 
     rockButton.addEventListener('click', () => {
-        const computerSelection = computerPlay()
+        const computerSelection = getComputerChoice()
         const playerSelection = 'rock'
+        playRound(playerSelection, computerSelection)
+    })
+
+    paperButton.addEventListener('click', () => {
+        const computerSelection = getComputerChoice()
+        const playerSelection = 'paper'
+        playRound(playerSelection, computerSelection)
+    })
+
+    scissorsButton.addEventListener('click', () => {
+        const computerSelection = getComputerChoice()
+        const playerSelection = 'scissors'
         playRound(playerSelection, computerSelection)
     })
     console.log("Game Over")
