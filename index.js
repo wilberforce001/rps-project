@@ -38,15 +38,17 @@ function playRound(playerSelection, computerSelection){
     if(result == "Tie"){
         const p = document.createElement('p')
         p.innerText = "It's a Tie!"
-    
+        outcomeDiv.appendChild(p)
     }
     else if(result == "Player"){
         const p = document.createElement('p')
         p.innerText = `You Win! ${playerSelection} beats ${computerSelection}`
+        outcomeDiv.appendChild(p)
     }
     else{
         const p = document.createElement('p')
         p.innerText = `You Lose! ${computerSelection} beats ${playerSelection}`
+        outcomeDiv.appendChild(p)
     }
 }
 
