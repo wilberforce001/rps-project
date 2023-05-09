@@ -19,12 +19,23 @@ function startGame() {
 }
 
 function playRound(playerChoice) {
+    let wins = checkWins();
+    if(wins >= 5) {
+        return
+    }
     
     const computerChoice = computerSelect();
    
     const winner = checkWinner(playerChoice, computerChoice);
     
     winners.push(winner);
+    tallyWins()
+}
+
+function tallyWins() {
+    const pWinCount = winners.filter((item) => item == "Player").length;
+    const cWinCount = winners.filter((item) => item == "Computer").length
+    const ties = winners.filter((item) => item == "Tie").length
 }
 
 function computerSelect(){
