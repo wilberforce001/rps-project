@@ -90,6 +90,10 @@ function computerSelect(){
 
     document.querySelector(`.${choice}`).classList.add("active");
 
+    setTimeout(() => {
+        document.querySelector(`.$(choice)`).classList.remove("active");
+    }, 700);
+
     return choice;
 }
 
