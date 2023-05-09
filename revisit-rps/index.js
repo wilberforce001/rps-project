@@ -33,7 +33,10 @@ function computerSelect(){
 }
 
 function checkWins() {
-    
+    const pWinCount = winners.filter((item) => item == "Player").length;
+    const cWinCount = winners.filter((item) => item == "Computer").length;
+    return Math.max(pWinCount, cWinCount)
+
 }
 
 function checkWinner(choice1, choice2) {
